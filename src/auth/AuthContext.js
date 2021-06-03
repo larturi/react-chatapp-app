@@ -1,10 +1,6 @@
 import React, { createContext, useCallback, useState } from 'react';
 
-// Con Fetch
-// import { fetchSinToken } from '../helpers/fetch';
-
-// Con Axios
-import { fetchSinToken } from '../helpers/axios';
+import { fetchSinToken } from '../helpers/httpClient';
 
 export const AuthContext = createContext();
 
@@ -15,7 +11,6 @@ const initialState = {
     name: null,
     email: null
 };
-
 
 export const AuthProvider= ({ children }) => {
 
