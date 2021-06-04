@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+
 import { AuthContext } from '../auth/AuthContext';
 
 export const LoginPage = () => {
@@ -12,15 +14,31 @@ export const LoginPage = () => {
 		rememberme: true,
 	});
 
+	const onSubmit = async (ev) => {
+		ev.preventDefault();
+
+		(form.rememberme) 
+			? localStorage.setItem('email', form.email) 
+			: localStorage.removeItem('email');
+
+		const { email, password } = form;
+		
+		const ok = await login(email, password);
+
+		if (!ok) {
+			Swal.fire('Error', 'Usuario y/o password incorrectos', 'error');
+		}
+	};
+
 	useEffect(() => {
 		const email = localStorage.getItem('email');
 
 		if (email) {
-			setForm({
+			setForm( (form) => ({
 				...form,
 				email,
 				rememberme: true,
-			});
+			}));
 		}
 	}, []);
 
@@ -39,16 +57,8 @@ export const LoginPage = () => {
 		});
 	};
 
-	const onSubmit = (ev) => {
-		ev.preventDefault();
-
-		(form.rememberme) 
-			? localStorage.setItem('email', form.email) 
-			: localStorage.removeItem('email');
-
-		const { email, password } = form;
-		
-		login(email, password);
+	const todoOk = () => {
+		return (form.email.length > 0 && form.password.length > 0) ? true : false;
 	};
 
     return (
@@ -110,7 +120,11 @@ export const LoginPage = () => {
 			</div>
 
 			<div className="container-login100-form-btn m-t-17">
-				<button className="login100-form-btn">
+				<button 
+					type="submit"
+					disabled={!todoOk()}
+					className="login100-form-btn"
+				>
 					Ingresar
 				</button>
 			</div>

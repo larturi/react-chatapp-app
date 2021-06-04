@@ -11,16 +11,18 @@ export const fetchSinToken = async(endpoint, data, method = 'GET') => {
         return await resp.data;
 
     } else {
-
+       
         const resp = await axios({
             method,
             url,
             data,
+            validateStatus: false,
             headers: {
                 'Context-type': 'application/json'
             }
         });
-
+  
         return await resp.data;
+
     }
 };
