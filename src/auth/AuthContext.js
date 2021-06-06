@@ -85,8 +85,6 @@ export const AuthProvider= ({ children }) => {
 
             const { usuario } = resp;
 
-            console.log('Autenticado');
-
             setAuth({
                 uid: usuario.uid,
                 ckecking: false,
