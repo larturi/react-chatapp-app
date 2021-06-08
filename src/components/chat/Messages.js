@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import { AuthContext } from '../../auth/AuthContext';
 import { ChatContext } from '../../context/chat/ChatContext';
 
@@ -9,13 +8,17 @@ import { SendMessage } from './SendMessage';
 
 export const Messages = () => {
 
-    const { chatState } = useContext(ChatContext);
-    const { auth } = useContext(AuthContext);
+    const { chatState } = useContext( ChatContext );
+    const { auth } = useContext( AuthContext );
 
     return (
         <div className="mesgs">
 
-            <div className="msg_history">
+            {/* <!-- Historia inicio --> */}
+            <div 
+                id="mensajes"
+                className="msg_history"
+            >
 
                 {
                     chatState.mensajes.map( msg => (
@@ -26,8 +29,9 @@ export const Messages = () => {
                 }
 
             </div>
+            {/* <!-- Historia Fin --> */}
 
-            <SendMessage />
+           <SendMessage />
 
         </div>
     )

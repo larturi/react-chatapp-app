@@ -47,7 +47,7 @@ export const SocketProvider = ({ children }) => {
                 payload: mensaje
             });
         })
-    }, [socket, dispatch]);
+    }, [ socket, dispatch ]);
     
     return (
         <SocketContext.Provider value={{ socket, online }}>
