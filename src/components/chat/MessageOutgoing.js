@@ -1,6 +1,7 @@
 import React from 'react';
 
 export const MessageOutgoing = () => {
+    console.log('papa');
     return (
         <div className="outgoing_msg">
              <div className="sent_msg">
