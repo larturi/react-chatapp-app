@@ -26,3 +26,39 @@ export const fetchSinToken = async(endpoint, data, method = 'GET') => {
 
     }
 };
+
+export const fetchConToken = async(endpoint, data, method = 'GET') => {
+
+    const url = `${baseURL}/${endpoint}`;
+    const token = localStorage.getItem('token') || '';
+
+    if (method === 'GET') {
+
+        const resp = await axios.get({
+            url,
+            headers: {
+                'Context-type': 'application/json',
+                'x-token': token
+            }
+        });
+
+        return await resp.data;
+
+    } else {
+       
+        const resp = await axios({
+            method,
+            url,
+            data,
+            validateStatus: false,
+            headers: {
+                'Context-type': 'application/json',
+                'x-token': token
+            }
+        });
+  
+        return await resp.data;
+
+    }
+};
+

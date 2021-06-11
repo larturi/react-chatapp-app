@@ -14,7 +14,6 @@ export const Messages = () => {
     return (
         <div className="mesgs">
 
-            {/* <!-- Historia inicio --> */}
             <div 
                 id="mensajes"
                 className="msg_history"
@@ -29,9 +28,8 @@ export const Messages = () => {
                 }
 
             </div>
-            {/* <!-- Historia Fin --> */}
 
-           <SendMessage />
+            <SendMessage />
 
         </div>
     )

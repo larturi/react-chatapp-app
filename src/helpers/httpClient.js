@@ -1,9 +1,10 @@
 // Fetch
-import { fetchSinToken } from './fetch';
+import { fetchSinToken, fetchConToken } from './fetch';
 
 // Axios
-// import { fetchSinToken } from './axios';
+// import { fetchSinToken, fetchConToken } from './axios';
 
 export {
-    fetchSinToken
+    fetchSinToken,
+    fetchConToken
 };
