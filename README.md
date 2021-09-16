@@ -1,6 +1,6 @@
 # React ChatApp
 
-### React & <a href="https://www.thecocktaildb.com/api.php">The Cocktail DB API</a>
+### React & SocketIO</a>
 
 ## 🚀 Quick start
 
